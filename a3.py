@@ -205,7 +205,14 @@ def title_by_actor(matches: List[str]) -> List[str]:
     Returns:
         a list of movie titles that the actor acted in
     """
-    pass
+    actor = matches[0].lower()
+    result = []
+
+    for movie in movie_db:
+        if any(actor == a.lower() for a in get_actors(movie)):
+            result.append(get_title(movie))
+    return result if result else ["No movies found for this actor"]
+
 
 
 # dummy argument is ignored and doesn't matter
