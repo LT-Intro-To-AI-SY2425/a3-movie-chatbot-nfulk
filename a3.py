@@ -188,7 +188,12 @@ def year_by_title(matches: List[str]) -> List[int]:
     Returns:
         a list of one item (an int), the year that the movie was made
     """
-    pass
+    title = matches[0].lower()
+
+    for movie in movie_db:
+        if get_title(movie).lower() == title:
+            return [get_year(movie)]
+    return ["No year found for this movie"]
 
 
 def title_by_actor(matches: List[str]) -> List[str]:
