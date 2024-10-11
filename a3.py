@@ -136,7 +136,12 @@ def director_by_title(matches: List[str]) -> List[str]:
     Returns:
         a list of 1 string, the director of the movie
     """
-    pass
+    title = matches[0].lower()
+
+    for movie in movie_db:
+        if get_title(movie).lower() == title:
+            return [get_director(movie)]
+    return ["No director found"]
 
 
 def title_by_director(matches: List[str]) -> List[str]:
